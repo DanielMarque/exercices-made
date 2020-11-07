@@ -1,1 +1,1 @@
-# uriExercises
+# Exercises from uri.com
