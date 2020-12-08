@@ -5,7 +5,7 @@ def selecao(lista, n):
     menor = lista[0]
 
     i = 1
-    for i in range(n):
+    for i in range(n + 1):
         if lista[i] < menor:
             menor = lista[i]
             listaOrdenada[i] += menor
