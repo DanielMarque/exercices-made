@@ -1,4 +1,4 @@
-console.log("Start Requisition");
+console.log("Start Requisistion");
 
 function login(email, password) {
   return new Promise((resolve, reject) => {
@@ -11,7 +11,7 @@ function login(email, password) {
 function getProfile(email) {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-      let jooj = false;
+      let jooj = true;
       if (jooj) {
         resolve(`Email: ${email} | ${["Photo", "Desc", "Friends", "Age"]}`);
       }
@@ -26,15 +26,12 @@ function getProfile(email) {
 //   });
 // });
 
-login("daniel@daniel", 123).then((obj) => {
-  console.log(obj.userEmail);
-  getProfile(obj.userEmail)
-    .then((obj) => {
-      console.log("Dados do perfil", obj);
-    })
-    .catch((err) => {
-      console.log("Ocorreu um Erro", err.message);
-    });
-});
+async function master() {
+  const loggedUser = await login("daniel@daniel.com", 321);
+  const getPerfil = await getProfile(loggedUser.userEmail);
+  console.log(getPerfil);
+}
 
-console.log("End Requisition");
+master();
+
+console.log("End Requisistion");
