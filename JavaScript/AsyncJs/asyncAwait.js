@@ -4,7 +4,7 @@ function login(email, password) {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       resolve({ userEmail: email, userPass: password });
-    }, 2000);
+    }, 3000);
   });
 }
 
@@ -16,7 +16,7 @@ function getProfile(email) {
         resolve(`Email: ${email} | ${["Photo", "Desc", "Friends", "Age"]}`);
       }
       reject(new Error());
-    }, 3000);
+    }, 1000);
   });
 }
 
@@ -27,11 +27,15 @@ function getProfile(email) {
 // });
 
 async function master() {
-  const loggedUser = await login("daniel@daniel.com", 321);
-  const getPerfil = await getProfile(loggedUser.userEmail);
-  console.log(getPerfil);
+  try {
+    const loggedUser = await login("daniel@daniel.com", 321);
+    const getPerfil = await getProfile(loggedUser.userEmail);
+    console.log(getPerfil);
+    console.log("End Requisistion");
+  } catch (error) {
+    console.log(error);
+    console.log("End Requisistion");
+  }
 }
 
 master();
-
-console.log("End Requisistion");
