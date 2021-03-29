@@ -47,14 +47,23 @@ for (let i of myObj) {
 //   }  
 // }
 
-for (let i = 0; i <= 50; i++){
+// for (let i = 0; i <= 50; i++){
 
-  if (i === 20){
-    console.log(i)
-    continue
-    console.log('Iterando 20')
-  }  
+//   if (i === 20){
+//     console.log(i)
+//     //continue
+//     break
+//     console.log('Iterando 20')
+//   }  
 
-  console.log('Iterando')
+//   console.log('Iterando')
+// }
 
+const nome = 'daniel'
+var texto = []
+
+for (let i = 0; i < nome.length; i++) {
+  texto.push(nome[i]) 
 }
+
+console.log(texto)
