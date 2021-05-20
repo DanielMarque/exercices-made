@@ -1,5 +1,5 @@
 
-
+// bruh
 function oddOrEven(array) {
   let total = array.reduce((total, v) => {
     return total + v

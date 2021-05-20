@@ -1,1 +1,1 @@
-# Exercises from uri.com
+:clap:
