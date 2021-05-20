@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-class Matriz { 
+class APX1_Q1_2021 { 
     
     Scanner input = new Scanner(System.in);		
     Boolean primeiroElemento = null;
@@ -72,13 +72,4 @@ class Matriz {
     public Boolean getFalse() {
       return false;
     }  
-}
-
-public class APX1_Q1_2021 {
-
-	public static void main(String[] args) {
-
-    Matriz m1 = new Matriz();
-    m1.verificaPalavra();		
-  }
 }
