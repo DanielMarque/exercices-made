@@ -19,15 +19,16 @@ console.log(item);
 
 const orders = [500, 30, 99, 15, 223];
 
-const sellers = ["Juvia", "Gray", "Natsu", "Juvia"];
-
 const total = 0;
-const withTax = [];
-const highValue = [];
 
 // Somando todos os itens de um Array
 // const total1 = orders.reduce((acc, cur) => acc + cur);
 
+// Quantidade de Nomes repetidos no Array
+
+const sellers = ["Juvia", "Gray", "Natsu", "Juvia"];
+
+// Reduce
 const total1 = sellers.reduce((todosNomes, nome) => {
   if (nome in todosNomes) {
     todosNomes[nome]++;
@@ -38,3 +39,7 @@ const total1 = sellers.reduce((todosNomes, nome) => {
 }, {});
 
 console.log(total1);
+
+// Map
+const withTax = sellers.map((v) => v * 1.1);
+console.log(withTax);
