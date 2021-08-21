@@ -4,5 +4,3 @@ function accum(s) {
 console.log(accum('abcd'))
 
 console.log('Daniel'.repeat(3))
-
-sss
