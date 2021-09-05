@@ -50,4 +50,3 @@ const melhores = games.filter((item) => { return item.rating > 5 })
 
 console.log(filtrado)
 console.log(melhores)
-
