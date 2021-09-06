@@ -1,6 +1,8 @@
 
 // Opostas: NORTH and SOUTH - WEST and EAST
 
+// No soluctions found
+
 function dirReduc(arr) {
   let newArr = [];
   for (var i = 0; i < arr.length; i++) {
