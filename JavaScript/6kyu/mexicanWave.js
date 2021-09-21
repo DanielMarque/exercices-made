@@ -11,7 +11,7 @@ function wave(word) {
     neWave[i][i].replace(neWave[i][i].toUpperCase())
   }
 
-  return neWave
+  return neWave 
 }
 
 console.log(wave('hello'))
