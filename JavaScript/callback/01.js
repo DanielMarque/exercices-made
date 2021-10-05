@@ -1,5 +1,4 @@
 console.log('Start')
-
 function loginUser(email, password, callback) {
   setTimeout(() => {
     console.log('Email Confirmado')

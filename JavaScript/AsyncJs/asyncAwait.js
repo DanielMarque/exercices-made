@@ -1,4 +1,4 @@
-console.log("Start Requisistion");
+console.log("Start Requisistion")
 
 function login(email, password) {
   return new Promise((resolve, reject) => {
