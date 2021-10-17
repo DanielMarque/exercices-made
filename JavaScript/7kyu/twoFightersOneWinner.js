@@ -9,30 +9,17 @@ class Fighter {
 
 
 function declareWinner(fighter1, fighter2, firstAttacker) {
-
-  let f1Health = fighter1.health
-  let f2Health = fighter2.health
-
-  let f1Damage = fighter1.damagePerAttack
-  let f2Damage = fighter2.damagePerAttack
-
-  if (firstAttacker === fighter1.name) {
-    f2Health -= f1Damage
+  var fac1 = Math.ceil(fighter1.health / fighter2.damagePerAttack);
+  var fac2 = Math.ceil(fighter2.health / fighter1.damagePerAttack);
+  if (fac1 < fac2) {
+    return fighter2.name;
+  } else if (fac2 < fac1) {
+    return fighter1.name;
   } else {
-    f1Health -= f2Damage
+    return firstAttacker;
   }
+}
 
-  while (true) {
-
-    f1Health -= f2Damage
-    f2Health -= f1Damage
-    if (f2Health <= 0) {
-      return fighter1.name
-    } else if (f1Health <= 0) {
-      return fighter2.name
-    }
-  }
-};
 
 const result = declareWinner(new Fighter("Jerry", 30, 3), new Fighter("Harald", 20, 5), "Harald")
 
