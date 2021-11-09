@@ -6,7 +6,7 @@
   "configurations": [
     {
       "name": "Launch Program",
-      "program": "JavaScript/7kyu/twoFightersOneWinner.js",
+      "program": "JavaScript/7kyu/movesInSquaredStrings.js",
       "request": "launch",
       "skipFiles": [
         "<node_internals>/**"
@@ -20,7 +20,7 @@
       "skipFiles": [
         "<node_internals>/**"
       ],
-      "program": "${workspaceFolder}/JavaScript/7kyu/twoFightersOneWinner.js"
+      "program": "${workspaceFolder}/JavaScript/7kyu/movesInSquaredStrings.js"
     }
   ]
 }
