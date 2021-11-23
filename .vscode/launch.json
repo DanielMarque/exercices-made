@@ -6,7 +6,7 @@
   "configurations": [
     {
       "name": "Launch Program",
-      "program": "JavaScript/7kyu/movesInSquaredStrings.js",
+      "program": "JavaScript/7kyu/friendOrFoe.js",
       "request": "launch",
       "skipFiles": [
         "<node_internals>/**"
