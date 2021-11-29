@@ -6,7 +6,7 @@
   "configurations": [
     {
       "name": "Launch Program",
-      "program": "JavaScript/7kyu/friendOrFoe.js",
+      "program": "JavaScript/7kyu/disemVowel.js",
       "request": "launch",
       "skipFiles": [
         "<node_internals>/**"
@@ -20,7 +20,7 @@
       "skipFiles": [
         "<node_internals>/**"
       ],
-      "program": "${workspaceFolder}/JavaScript/7kyu/movesInSquaredStrings.js"
+      "program": "${workspaceFolder}/JavaScript/7kyu/disemVowel.js"
     }
   ]
 }
