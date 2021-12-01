@@ -1,8 +1,14 @@
+const fs = require('fs')
+const path = require('path')
 
-console.log('1')
+const caminho = path.join(__dirname, 'texto.txt')
 
-setTimeout(function () {
-  console.log('dois segundos')
-}, 0)
+function exibirConteudo(err, conteudo) {
+  console.log(conteudo.toString())
+}
 
-console.log('2')
+console.log('tes 1')
+fs.readFileSync(caminho, {}, exibirConteudo)
+console.log('tes 2')
+
+// fs.readFile(caminho, {}, exibirConteudo)

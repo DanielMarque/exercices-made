@@ -3,7 +3,7 @@
 
 // calcular(3)(7)(fn)
 
-
+// soma 3 números
 function somar(num1) {
   return function (num2) {
     return function (num3) {
@@ -14,9 +14,12 @@ function somar(num1) {
 
 console.log(somar(1)(2)(3))
 
+
 function subtrair(n1, n2) {
   return n1 + n2
 }
+
+// Recebe 2 números e depois chama outra função
 
 function calcular(num1) {
   return (num2) => {
