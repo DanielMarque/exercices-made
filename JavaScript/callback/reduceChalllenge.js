@@ -2,9 +2,10 @@
 
 const carrinho = [
   { nome: 'Caneta', qtd: 10, preco: 7.99 , fragil: true},
-  { nome: 'Impressora', qtd: 0, preco: 37.99 , fragil: false},
-  { nome: 'Caderno', qtd: 2, preco: 27.9 , fragil: true},
-  { nome: 'Tesoura', qtd: 5, preco: 19.3 , fragil: false},
+  { nome: 'Impressora', qtd: 1, preco: 649.50, fragil: true},
+  { nome: 'Caderno', qtd: 4, preco: 27.10 , fragil: false},
+  { nome: 'Tesoura', qtd: 1, preco: 19.20 , fragil: true},
+  { nome: 'Lapis', qtde: 3, preco: 5.82, fragil: false }
 ]
 
 // 1 - fragil: true
