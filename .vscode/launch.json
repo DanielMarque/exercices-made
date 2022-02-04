@@ -6,7 +6,7 @@
   "configurations": [
     {
       "name": "Launch Program",
-      "program": "JavaScript/eventLoops/02.js",
+      "program": "JavaScript/8kyu/03.js",
       "request": "launch",
       "skipFiles": [
         "<node_internals>/**"
