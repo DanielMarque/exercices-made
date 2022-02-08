@@ -6,7 +6,7 @@
   "configurations": [
     {
       "name": "Launch Program",
-      "program": "JavaScript/8kyu/03.js",
+      "program": "JavaScript/6kyu/countSmileyFaces.js",
       "request": "launch",
       "skipFiles": [
         "<node_internals>/**"
