@@ -12,57 +12,31 @@ glColor3f(0.0f, 1.0f, 0.0f);
 
 
 // desenho de uma face do quadrado
-glBegin(GL_QUADS);
- glMatrixMode(GL_MODELVIEW);
+glBegin(GL_TRIANGLES);
+glMatrixMode(GL_MODELVIEW);
 
 //CUBO
 
 // parte BAIXO cubo (y = 1.0f)
+//          x  ,  y  ,  z
 
-glColor3f(0.0f, 1.0f, 0.0f);	 // Green
-glVertex3f(1.0f, 1.0f, -1.0f);
-glVertex3f(-1.0f, 1.0f, -1.0f);
-glVertex3f(-1.0f, 1.0f,  1.0f);
-glVertex3f( 1.0f, 1.0f,  1.0f);
+// Frente Azul
+glColor3f(0.0f, 0.0f, 1.0f); // Blue
+glVertex3f(1.0f, -1.0f, 0.0f);
+glVertex3f(-1.0f, 1.0f, 0.0f);
+glVertex3f(-1.0f, -1.0f, 0.0f);
 
-// parte CIMA cubo
+// Frente Amarela
+glColor3f(0.0f, 1.0f, 1.0f); // Yellow
+glVertex3f(1.0f, -1.0f, 0.0f);
+glVertex3f(-1.0f, 1.0f, 0.0f);
+glVertex3f(1.0f, 1.0f, 0.0f);
 
-glColor3f(1.0f, 0.1f, 0.0f);	 // Orange
-glVertex3f( 1.0f, -1.0f,  1.0f);
-glVertex3f(-1.0f, -1.0f,  1.0f);
-glVertex3f(-1.0f, -1.0f, -1.0f);
-glVertex3f( 1.0f, -1.0f, -1.0f);
-
-
-// parte FRENTE cubo (z = 1.0f)
-
-glColor3f(0.0f, 1.0f, 0.0f);	 // Red
-glVertex3f( 1.0f,  1.0f, 1.0f);
-glVertex3f(-1.0f,  1.0f, 1.0f);
-glVertex3f(-1.0f, -1.0f, 1.0f);
-glVertex3f( 1.0f, -1.0f, 1.0f);
-
-// parte TRÁS cubo (z = -1.0f)
-glColor3f(1.0f, 1.0f, 0.0f);	 // Yellow
-glVertex3f( 1.0f, -1.0f, -1.0f);
-glVertex3f(-1.0f, -1.0f, -1.0f);
-glVertex3f(-1.0f,  1.0f, -1.0f);
-glVertex3f( 1.0f,  1.0f, -1.0f);
-
-// parte ESQUERDA cubo (x = -1.0f)
+// Frente Amarela
+glColor3f(1.0f, 0.0f, 0.0f); // Red
+glVertex3f(1.0f, 1.0f, 1.0f);
 
 
-glVertex3f(-1.0f,  1.0f,  1.0f);
-glVertex3f(-1.0f,  1.0f, -1.0f);
-glVertex3f(-1.0f, -1.0f, -1.0f);
-glVertex3f(-1.0f, -1.0f,  1.0f);
-
-// parte DIREITA cubo (x = 1.0f)
-glColor3f(1.0f, 0.0f, 1.0f);	 // Magenta
-glVertex3f(1.0f,  1.0f, -1.0f);
-glVertex3f(1.0f,  1.0f,  1.0f);
-glVertex3f(1.0f, -1.0f,  1.0f);
-glVertex3f(1.0f, -1.0f, -1.0f);
 
 glEnd();
 
