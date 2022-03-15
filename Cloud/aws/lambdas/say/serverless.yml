@@ -1,0 +1,20 @@
+# serverless.yml
+service: myService
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  memorySize: 512 # optional, in MB, default is 1024
+  timeout: 10 # optional, in seconds, default is 6
+  versionFunctions: false # optional, default is true
+  tracing:
+    lambda: true # optional, enables tracing for all functions (can be true (true equals 'Active') 'Active' or 'PassThrough')
+
+functions:
+  main:
+    handler: index.main # required, handler set in AWS Lambda
+    events:
+      - http:
+          path: /
+          method: get
+          cors: true

@@ -1,0 +1,15 @@
+# serverless.yml
+service: api-gtway-test
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  memorySize: 512 # optional, in MB, default is 1024
+
+functions:
+  get-user:
+    handler: lambdas/get-user.main # required, handler set in AWS Lambda
+    events:
+      - http:
+          path: /get-user/{ID}
+          method: get
