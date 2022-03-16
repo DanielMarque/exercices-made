@@ -1,0 +1,41 @@
+service: sls-sqs-lambdas
+
+custom:
+  settings:
+    ACCOUNT_ID: "413425779393"
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  environment: ${self:custom.settings}
+
+  iamRoleStatements:
+    - Effect: "Allow"
+      Action:
+        - "sqs:SendMessage"
+      Resource: "arn:aws:sqs:${self:provider.region}:*:gtwQueue"
+
+functions:
+  send:
+    handler: handler.send
+    events:
+      - http:
+          method: get
+          path: send
+
+  response:
+    handler: handler.response
+    events:
+      - sqs:
+          arn:
+            Fn::GetAtt:
+              - gtwQueue
+              - Arn
+          batchSize: 1 # Número de msgs que ativam lambda
+
+resources:
+  Resources:
+    gtwQueue:
+      Type: "AWS::SQS::Queue"
+      Properties:
+        QueueName: "gtwQueue"

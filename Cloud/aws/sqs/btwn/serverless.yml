@@ -1,0 +1,37 @@
+# serverless.yml
+service: myService
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  iam:
+    role:
+      statements:
+        - Effect: Allow
+          Action:
+            - sqs:SendMessage
+          Resource:
+            - Fn::GetAtt: [ sqsGetInfo, Arn ]
+
+constructs:
+  jobs:
+    type: queue
+    worker:
+      handler: subscriber.main
+
+functions:
+  subscriber:
+    handler: worker.main # required, handler set in AWS Lambda
+    events:
+      - httpApi:
+          method: post
+          path: /send
+
+resources:
+  Resources:
+    sqsGetInfo:
+      Type: "AWS::SQS::Queue"
+      Properties:
+        QueueName: sqs-queue-get-info.fifo
+        FifoQueue: true
+
