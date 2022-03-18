@@ -210,9 +210,9 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/sls-sqs-lambdas/dev/1647609160578-2022-03-18T13:12:40.578Z/sls-sqs-lambdas.zip"
+                "S3Key": "serverless/sls-sqs-lambdas/dev/1647615283426-2022-03-18T14:54:43.426Z/sls-sqs-lambdas.zip"
               },
-              "Handler": "handler.send",
+              "Handler": "main.send",
               "Runtime": "nodejs14.x",
               "FunctionName": "sls-sqs-lambdas-dev-send",
               "MemorySize": 1024,
@@ -240,7 +240,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/sls-sqs-lambdas/dev/1647609160578-2022-03-18T13:12:40.578Z/sls-sqs-lambdas.zip"
+                "S3Key": "serverless/sls-sqs-lambdas/dev/1647615283426-2022-03-18T14:54:43.426Z/sls-sqs-lambdas.zip"
               },
               "Handler": "handler.response",
               "Runtime": "nodejs14.x",
@@ -263,24 +263,24 @@
               "ResponseLogGroup"
             ]
           },
-          "ResponseLambdaVersionfxElH1LVowxn5yrPIvGskZkAL0gAIt2kJRLn6J1CFc": {
-            "Type": "AWS::Lambda::Version",
-            "DeletionPolicy": "Retain",
-            "Properties": {
-              "FunctionName": {
-                "Ref": "ResponseLambdaFunction"
-              },
-              "CodeSha256": "WtNQC7guPl5PI2VzIICzLWNYbyXhuW0Q/dW2yPESQ9I="
-            }
-          },
-          "SendLambdaVersionujQuaUF4yBiN4sJ7DHtB9E2s9XKjHT4GwXOfpJ6uaCk": {
+          "SendLambdaVersionyz47teTJLUZvEYyLJLpiRkEKIeTcodDDsMdKCfGYyHs": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "SendLambdaFunction"
               },
-              "CodeSha256": "WtNQC7guPl5PI2VzIICzLWNYbyXhuW0Q/dW2yPESQ9I="
+              "CodeSha256": "b5LHEi/dPGvvqszLTcaOKOlDjYAwm90FbCeGi9XskRY="
+            }
+          },
+          "ResponseLambdaVersionmbEN2LwJfjYaYxbmuhe9mISfG7P9jdnIK0IMUF7k78": {
+            "Type": "AWS::Lambda::Version",
+            "DeletionPolicy": "Retain",
+            "Properties": {
+              "FunctionName": {
+                "Ref": "ResponseLambdaFunction"
+              },
+              "CodeSha256": "b5LHEi/dPGvvqszLTcaOKOlDjYAwm90FbCeGi9XskRY="
             }
           },
           "ApiGatewayRestApi": {
@@ -310,10 +310,10 @@
               }
             }
           },
-          "ApiGatewayMethodSendGet": {
+          "ApiGatewayMethodSendPost": {
             "Type": "AWS::ApiGateway::Method",
             "Properties": {
-              "HttpMethod": "GET",
+              "HttpMethod": "POST",
               "RequestParameters": {},
               "ResourceId": {
                 "Ref": "ApiGatewayResourceSend"
@@ -356,7 +356,7 @@
               "SendLambdaPermissionApiGateway"
             ]
           },
-          "ApiGatewayDeployment1647609159403": {
+          "ApiGatewayDeployment1647615282381": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -365,7 +365,7 @@
               "StageName": "dev"
             },
             "DependsOn": [
-              "ApiGatewayMethodSendGet"
+              "ApiGatewayMethodSendPost"
             ]
           },
           "SendLambdaPermissionApiGateway": {
@@ -443,22 +443,22 @@
               "Name": "sls-sls-sqs-lambdas-dev-ServerlessDeploymentBucketName"
             }
           },
-          "ResponseLambdaFunctionQualifiedArn": {
-            "Description": "Current Lambda function version",
-            "Value": {
-              "Ref": "ResponseLambdaVersionfxElH1LVowxn5yrPIvGskZkAL0gAIt2kJRLn6J1CFc"
-            },
-            "Export": {
-              "Name": "sls-sls-sqs-lambdas-dev-ResponseLambdaFunctionQualifiedArn"
-            }
-          },
           "SendLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "SendLambdaVersionujQuaUF4yBiN4sJ7DHtB9E2s9XKjHT4GwXOfpJ6uaCk"
+              "Ref": "SendLambdaVersionyz47teTJLUZvEYyLJLpiRkEKIeTcodDDsMdKCfGYyHs"
             },
             "Export": {
               "Name": "sls-sls-sqs-lambdas-dev-SendLambdaFunctionQualifiedArn"
+            }
+          },
+          "ResponseLambdaFunctionQualifiedArn": {
+            "Description": "Current Lambda function version",
+            "Value": {
+              "Ref": "ResponseLambdaVersionmbEN2LwJfjYaYxbmuhe9mISfG7P9jdnIK0IMUF7k78"
+            },
+            "Export": {
+              "Name": "sls-sls-sqs-lambdas-dev-ResponseLambdaFunctionQualifiedArn"
             }
           },
           "ServiceEndpoint": {
@@ -581,11 +581,11 @@
     "pluginsData": {},
     "functions": {
       "send": {
-        "handler": "handler.send",
+        "handler": "main.send",
         "events": [
           {
             "http": {
-              "method": "get",
+              "method": "post",
               "path": "send",
               "integration": "AWS_PROXY"
             }
@@ -597,7 +597,7 @@
         "timeout": 6,
         "runtime": "nodejs14.x",
         "vpc": {},
-        "versionLogicalId": "SendLambdaVersionujQuaUF4yBiN4sJ7DHtB9E2s9XKjHT4GwXOfpJ6uaCk"
+        "versionLogicalId": "SendLambdaVersionyz47teTJLUZvEYyLJLpiRkEKIeTcodDDsMdKCfGYyHs"
       },
       "response": {
         "handler": "handler.response",
@@ -617,7 +617,7 @@
         "timeout": 6,
         "runtime": "nodejs14.x",
         "vpc": {},
-        "versionLogicalId": "ResponseLambdaVersionfxElH1LVowxn5yrPIvGskZkAL0gAIt2kJRLn6J1CFc"
+        "versionLogicalId": "ResponseLambdaVersionmbEN2LwJfjYaYxbmuhe9mISfG7P9jdnIK0IMUF7k78"
       }
     },
     "resources": {
@@ -655,7 +655,7 @@
     "artifact": "/home/daniel/projects/exercices-made/Cloud/aws/sqs/gtw/.serverless/sls-sqs-lambdas.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/sls-sqs-lambdas/dev/1647609160578-2022-03-18T13:12:40.578Z",
+    "artifactDirectoryName": "serverless/sls-sqs-lambdas/dev/1647615283426-2022-03-18T14:54:43.426Z",
     "artifact": "sls-sqs-lambdas.zip"
   }
 }

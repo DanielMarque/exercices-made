@@ -17,10 +17,10 @@ provider:
 
 functions:
   send:
-    handler: handler.send
+    handler: main.send
     events:
       - http:
-          method: get
+          method: post
           path: send
 
   response:
