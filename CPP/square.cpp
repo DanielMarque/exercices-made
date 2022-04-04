@@ -4,6 +4,10 @@
 #include <GL/glut.h>
 #include <GL/glu.h>
 
+/**
+ * g++ "heap_vs_stack".cpp -o "heap_vs_stack" -std=c++11 -Wall -lGL -lGLU -lglut -lGLEW -lglfw -lX11 -lXxf86vm -lXrandr -lpthread -lXi -ldl -lXinerama -lXcursor -fpermissive
+ *
+ * **/
 void draw() {
 
 glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
