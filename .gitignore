@@ -2,3 +2,4 @@ venv
 JavaScript/node_modules/promises/node_modules
 JavaScript/promises/node_modules
 .project
+node_modules
