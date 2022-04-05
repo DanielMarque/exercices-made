@@ -6,7 +6,7 @@
   "configurations": [
     {
       "name": "Launch Program",
-      "program": "JavaScript/6kyu/countSmileyFaces.js",
+      "program": "JavaScript/fundamentals/aleatórios/callstack-heap.js",
       "request": "launch",
       "skipFiles": [
         "<node_internals>/**"
@@ -20,7 +20,7 @@
       "skipFiles": [
         "<node_internals>/**"
       ],
-      "program": "${workspaceFolder}/JavaScript/7kyu/disemVowel.js"
+      "program": "${workspaceFolder}/JavaScript/fundamentals/aleatórios/callstack-heap.js"
     }
   ]
 }
