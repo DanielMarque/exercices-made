@@ -1,26 +1,19 @@
 
-const number = 23
 
-// console.log(number)
+// Uma promise recebe uma função de callback pra sucesso(resolved) e outra para falha(reject)
+
+let p = new Promise(function(cumprimirPromessa) {
+  cumprimirPromessa('daniel')
+})
+
+p.then((valor) =>{
+  console.log(valor + ' Salgado')
+})
 
 
-// const sleep = (ms) => Promise.resolve(setTimeout(()=>{console.log('millisecods:', ms)},ms))
-const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms))
+// Usando a nomeclatura normal
+let g = new Promise(function(resolve) {
+  resolve('sonia')
+})
 
-const awaken = (ms) => new Promise(resolve => setTimeout(resolve, ms), reject => console.log('Rejeitado'))
-
-function chama(){
-  console.log('imprimindo')
-  sleep(3000)
-  console.log('imprimido!')
-}
-
-// chama()
-
-function chamaDnv(){
-  console.log('imprimindo')
-  awaken()
-  console.log('imprimido!')
-}
-
-chamaDnv()
+g.then(console.log)

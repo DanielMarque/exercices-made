@@ -1,12 +1,12 @@
 
 
-function esperarPor(tempo = 2000) {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      console.log('Executando promise...')
-      resolve('Promessas ')
-    }, tempo)
+function aguardar(tmpo) {
+  return new Promise((resolve) => { // Retornamos uma promisse executando a
+    setTimeout(()=>{                // função de callback dentro do serTimeout
+      console.log('Chamou')
+      resolve()
+    }, tmpo)
   })
 }
 
-esperarPor(2000).then(texto => console.log(texto))
+aguardar(2000).then(() => console.log('Promisse Executada'))
