@@ -6,7 +6,7 @@
   "configurations": [
     {
       "name": "Launch Program",
-      "program": "JavaScript/5kyu/anagrams.js",
+      "program": "JavaScript/6kyu/deadFish.js",
       "request": "launch",
       "skipFiles": [
         "<node_internals>/**"
@@ -20,7 +20,7 @@
       "skipFiles": [
         "<node_internals>/**"
       ],
-      "program": "${workspaceFolder}/JavaScript/5kyu/anagrams.js"
+      "program": "${workspaceFolder}/JavaScript/6kyu/deadFish.js"
     }
   ]
 }
