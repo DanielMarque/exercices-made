@@ -1,14 +1,19 @@
 variable "env" {
-  type = string
+  type    = string
   default = "dev"
 }
 
 variable "service_name" {
-  type = string
+  type    = string
   default = "todos"
 }
 
 variable "aws_region" {
-  type = string
+  type    = string
   default = "us-east-1"
+}
+
+variable "aws_account_id" {
+  type    = string
+  default = "413425779393"
 }
