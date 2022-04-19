@@ -15,32 +15,24 @@ exports.handler = async event => {
 
     try {
         const { Parameter: { Value: table } } = await ssm.getParameter({ Name: process.env.TABLE }).promise();
-        const { pathParameters } = normalizeEvent(event);
+        const { data } = normalizeEvent(event);
 
         const params = {
             TableName: table,
+            Item: {
+                ...data,
+                created_at: new Date().toISOString(),
+            },
         };
-        let data = {};
-        if (pathParameters && pathParameters['todoId']) {
-            data = await dynamo
-                .get({
-                    ...params,
-                    Key: {
-                        id: parseInt(pathParameters['todoId'], 10),
-                    },
-                })
-                .promise();
-        } else {
-            // Scan só a intuito de testes
-            data = await dynamo.scan(params).promise();
-        }
+
+        await dynamo.put(params).promise();
 
         console.log({
-            message: 'Records found',
-            data: JSON.stringify(data),
+            message: 'Record has been created',
+            data: JSON.stringify(params),
         });
 
-        return response(200, data);
+        return response(201, `Record ${data.id} has been created`);
     } catch (err) {
         console.error(err);
         return response(500, 'Somenthing went wrong');

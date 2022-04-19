@@ -5,3 +5,5 @@ JavaScript/promises/node_modules
 node_modules
 .terraform
 .terraform.lock.hcl
+.terraform.tfstate.lock.info
+Cloud/rest-api-pattern/terraform/files
