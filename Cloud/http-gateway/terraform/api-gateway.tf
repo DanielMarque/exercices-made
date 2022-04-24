@@ -19,6 +19,6 @@ resource "aws_apigatewayv2_integration" "create_user" {
 
 resource "aws_apigatewayv2_route" "create_user" {
   api_id    = aws_apigatewayv2_api.create_user.id
-  route_key = "POST /"
+  route_key = "GET /"
   target    = "integrations/${aws_apigatewayv2_integration.create_user.id}"
 }

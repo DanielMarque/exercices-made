@@ -38,12 +38,13 @@ resource "aws_lambda_permission" "allow_cloudwatch" {
   action        = "lambda:InvokeFunction"
   function_name = aws_lambda_function.create_user.function_name
   principal     = "events.amazonaws.com"
-  source_arn    = "arn:aws:execute-api:${var.aws_region}:${var.aws_account_id}:*/*"
+  source_arn    = "arn:aws:events:${var.aws_region}:${var.aws_account_id}:*/*"
 }
 
-resource "aws_lambda_permission" "api" { // Permissão pra invocar rota
+resource "aws_lambda_permission" "lambda_permission" { // Permissão pra invocar rota
+  statement_id  = "AllowExecutionFromAPIGateway"
   action        = "lambda:InvokeFunction"
   function_name = aws_lambda_function.create_user.function_name
   principal     = "apigateway.amazonaws.com"
-  source_arn    = "arn:aws:execute-api:${var.aws_region}:${var.aws_account_id}:*/*"
+  source_arn    = "${aws_apigatewayv2_api.create_user.execution_arn}/*/*/"
 }
