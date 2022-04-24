@@ -7,3 +7,4 @@ node_modules
 .terraform.lock.hcl
 .terraform.tfstate.lock.info
 Cloud/rest-api-pattern/terraform/files
+Cloud/http-gateway/terraform/files
