@@ -1,20 +1,22 @@
+exports.handler = async (event, context,) => {
 
-exports.handler = async (event, context, callback) => {
+  const response = {
+    "statusCode": 209,
+    "body": JSON.stringify({
+      message: 'Uhuuuu!'
+    })
+  };
 
-    try {
-        console.log(event);
-        callback(null, {
-          statusCode: 200,
-          body: {
-            message: 'Sucesso'
-          }
-        })
-    } catch (err) {
-        console.error(err);
-        return {
-          status: 500,
-          message: 'Tudo errado',
-          err
-        };
-    }
+  try {
+      console.log(event);
+      console.log('CONTEXTO: ', context);
+      return response;
+  } catch (err) {
+      console.error(err);
+      return {
+        status: 500,
+        message: 'Tudo errado',
+        err
+      };
+  }
 };

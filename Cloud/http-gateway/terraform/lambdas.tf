@@ -25,15 +25,16 @@ data "archive_file" "create_user" {
 }
 
 resource "aws_lambda_function" "create_user" {
-  filename      = "files/create-user.zip"
-  description   = "Should create a user in Dynamo using HTT gtwy"
-  function_name = "create-user"
-  role          = aws_iam_role.create_user.arn
-  handler       = "create-user.handler"
-  runtime       = "nodejs14.x"
+  filename         = "files/create-user.zip"
+  description      = "Should create a user in Dynamo using HTT gtwy"
+  function_name    = "create-user"
+  role             = aws_iam_role.create_user.arn
+  handler          = "create-user.handler"
+  source_code_hash = data.archive_file.create_user.output_base64sha256 // Pegar mudanças realizadas
+  runtime          = "nodejs14.x"
 }
 
-resource "aws_lambda_permission" "allow_cloudwatch" {
+resource "aws_lambda_permission" "allow_cloudwatch" { // Permissão de escrita de logs
   statement_id  = "AWSLambdaBasicExecutionRole"
   action        = "lambda:InvokeFunction"
   function_name = aws_lambda_function.create_user.function_name
@@ -44,7 +45,7 @@ resource "aws_lambda_permission" "allow_cloudwatch" {
 resource "aws_lambda_permission" "lambda_permission" { // Permissão pra invocar rota
   statement_id  = "AllowExecutionFromAPIGateway"
   action        = "lambda:InvokeFunction"
-  function_name = aws_lambda_function.create_user.function_name
+  function_name = aws_lambda_function.create_user.arn
   principal     = "apigateway.amazonaws.com"
   source_arn    = "${aws_apigatewayv2_api.create_user.execution_arn}/*/*/"
 }
