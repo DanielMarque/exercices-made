@@ -1,22 +1,41 @@
-exports.handler = async (event, context,) => {
+const AWS = require('aws-sdk');
+const { v4: uuidv4 } = require('uuid')
 
-  const response = {
-    "statusCode": 209,
-    "body": JSON.stringify({
-      message: 'Uhuuuu!'
-    })
-  };
+const dynamo = new AWS.DynamoDB();
+
+exports.handler = async event => {
+
+  const params = JSON.parse(event.body)
 
   try {
-      console.log(event);
-      console.log('CONTEXTO: ', context);
-      return response;
+    await dynamo.putItem({
+      TableName: process.env.DYNAMO_TABLE_USERS,
+      Item: {
+        id: {
+          S: uuidv4()
+        },
+        name:{
+          S: params.name
+        } ,
+        email: {
+          S: params.email
+        }
+      }
+    }).promise()
+
+    return {
+      statusCode: 201,
+      body: JSON.stringify({
+        message: "Dados gravados no banco!",
+        dados: params
+      })
+    };
   } catch (err) {
-      console.error(err);
-      return {
-        status: 500,
-        message: 'Tudo errado',
-        err
-      };
+    console.error(err);
+    return {
+      status: 500,
+      message: 'Tudo errado',
+      err
+    };
   }
 };

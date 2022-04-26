@@ -25,13 +25,19 @@ data "archive_file" "create_user" {
 }
 
 resource "aws_lambda_function" "create_user" {
-  filename         = "files/create-user.zip"
-  description      = "Should create a user in Dynamo using HTT gtwy"
-  function_name    = "create-user"
-  role             = aws_iam_role.create_user.arn
-  handler          = "create-user.handler"
-  source_code_hash = data.archive_file.create_user.output_base64sha256 // Pegar mudanças realizadas
-  runtime          = "nodejs14.x"
+  filename      = "files/create-user.zip"
+  description   = "Should create a user in Dynamo using HTT gtwy"
+  function_name = "create-user"
+  role          = aws_iam_role.create_user.arn
+  handler       = "create-user.handler"
+  # source_code_hash = data.archive_file.create_user.output_base64sha256 // Pegar mudanças realizadas
+  runtime = "nodejs14.x"
+
+  environment {
+    variables = {
+      DYNAMO_TABLE_USERS = "${aws_dynamodb_table.users.name}"
+    }
+  }
 }
 
 resource "aws_lambda_permission" "allow_cloudwatch" { // Permissão de escrita de logs
