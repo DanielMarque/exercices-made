@@ -15,5 +15,5 @@ variable "service_name" {
 
 variable "env" {
   type    = string
-  default = "teste"
+  default = "Development"
 }

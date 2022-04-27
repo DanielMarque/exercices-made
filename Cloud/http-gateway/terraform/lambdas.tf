@@ -19,15 +19,16 @@ EOF
 }
 
 data "archive_file" "create_user" {
-  output_path = "files/create-user.zip"
   type        = "zip"
-  source_file = "../lambdas/create-user.js"
+  source_dir  = "../lambdas"
+  output_path = "files/create-user.zip"
 }
 
 resource "aws_lambda_function" "create_user" {
-  filename      = "files/create-user.zip"
-  description   = "Should create a user in Dynamo using HTT gtwy"
   function_name = "create-user"
+  description   = "Should create a user in Dynamo using HTT gtwy"
+  s3_bucket     = aws_s3_bucket.lambda_package.bucket
+  s3_key        = aws_s3_bucket_object.file_upload.key
   role          = aws_iam_role.create_user.arn
   handler       = "create-user.handler"
   # source_code_hash = data.archive_file.create_user.output_base64sha256 // Pegar mudanças realizadas
