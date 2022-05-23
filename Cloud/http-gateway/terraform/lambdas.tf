@@ -31,7 +31,7 @@ resource "aws_lambda_function" "create_user" {
   s3_key        = aws_s3_bucket_object.file_upload.key
   role          = aws_iam_role.create_user.arn
   handler       = "create-user.handler"
-  # source_code_hash = data.archive_file.create_user.output_base64sha256 // Pegar mudanças realizadas
+  source_code_hash = data.archive_file.create_user.output_base64sha256 // Pegar mudanças realizadas
   runtime = "nodejs14.x"
 
   environment {

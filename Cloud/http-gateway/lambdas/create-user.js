@@ -5,7 +5,8 @@ const dynamo = new AWS.DynamoDB();
 
 exports.handler = async event => {
 
-  const params = JSON.parse(event.body)
+  console.log(event)
+  const params = event.body
 
   try {
     await dynamo.putItem({
