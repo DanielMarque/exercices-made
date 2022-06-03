@@ -1,15 +1,25 @@
+// Callback: É a passagem de uma função como parâmetro e essa função retorna a execução dessa função
 
-function exec(fn, a, b) {
-  return fn(a, b)
+const somarNoTerminal = (num1, num2) => {
+  return num1 + num2
 }
 
-const sumInTerminal = (a, b) => console.log(a + b)
-const subInTerminal = (a, b) => console.log(a - b)
+const subtrairNotTerminal = (num1, num2) => {
+  return num1 - num2
+}
 
-exec(sumInTerminal, 10, 3)
-exec(subInTerminal, 5, 3)
+const exec = (fn, para1, para2) => {
+  console.log(fn(para1, para2))
+}
 
+// exec(somarNoTerminal, 56, 38)
+// exec(subtrairNotTerminal, 182, 27)
 
-setInterval(() => {
-  sumInTerminal(2, 3)
-}, 5000)
+const fn = () => console.log('Executando...')
+
+// setInterval(fn, 1000)
+
+setTimeout((exec)=>{
+  return exec(somarNoTerminal, 56, 38)
+}, 2000)
+
