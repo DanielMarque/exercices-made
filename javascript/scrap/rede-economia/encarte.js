@@ -6,7 +6,7 @@ import request from 'request-promise-native'
 
 const url = 'https://www.redeconomia.com.br/encartes/'
 
-// Lista todos os links de download e clicka neles
+// Lista todos os links de download e faz download dos links com pdf
 
 const main = async () => {
   const html = await fetch(url)
