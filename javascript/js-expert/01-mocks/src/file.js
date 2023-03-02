@@ -1,3 +1,4 @@
+
 const { readFile } = require('fs/promises')
 const { join } = require('path')
 const { error } = require('./constants')
@@ -8,13 +9,14 @@ const DEFAULT_OPTION = {
 }
 
 
+
 class File {
   static async csvToJson(filePath){
     const content = await File.getFileContent(filePath)
     const validation = File.isValid(content)
     if(!validation.valid) throw new Error(validation.error)
 
-    return content
+
   }
 
   static async getFileContent(filePath){
